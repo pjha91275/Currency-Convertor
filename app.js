@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.frankfurter.app/latest?";
+const BASE_URL = "https://open.er-api.com/v6/latest";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
@@ -34,12 +34,12 @@ const updateExchangeRate = async ()=>{
     }
 
     console.log(fromCurr);
-    const URL = `${BASE_URL}from=${fromCurr.value}&to=${toCurr.value}`;
+    const URL = `${BASE_URL}/${fromCurr.value}`;
     let response = await fetch(URL);
     console.log(response);
     let data = await response.json();
     console.log(data);
-    let rate = data.rates[toCurr.value];
+    let rate =  data.rates[toCurr.value];
     console.log(rate);
     let finalAmount = amtVal * rate;
     msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
@@ -61,3 +61,5 @@ btn.addEventListener("click",async (evt)=>{
 window.addEventListener("load", ()=>{
     updateExchangeRate();
 });
+
+
