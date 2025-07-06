@@ -47,7 +47,7 @@ const updateFlag = (element) =>{
     let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
     let img = element.parentElement.querySelector("img");
     img.src = newSrc;
-}
+};
 
 btn.addEventListener("click",async (evt)=>{
     evt.preventDefault();
